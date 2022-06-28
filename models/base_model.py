@@ -9,10 +9,16 @@ class BaseModel():
 
     def __init__(self, *args, **kwargs):
         """ init method """
-        if (kwargs == None)
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.datetime.now()  
-            self.updated_at = datetime.datetime.now()
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.datetime.now()  
+        self.updated_at = datetime.datetime.now()
+
+        if (kwargs == None):
+            for k, value in kwargs.items():
+                if k == "updated_at" or k == "created_at":
+                    value = datetime.strptime(value, "Y-%m-%dT%H:%M:%S.%f")
+                if k != "__class__":
+                    setattr(self, key, value)
 
     def __str__(self):
         """ retrun string """
