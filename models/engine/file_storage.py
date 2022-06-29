@@ -22,6 +22,11 @@ class FileStorage:
 
     def save(self):
         """ save a jsno """
+        aux = {}
+        for key in self.__objects:
+            aux[key] = self.__objects[key].to_dict()
+        with open(self.__file_path, "w") as f:
+            json.dump(aux, f)
 
 
     def reload(self):
