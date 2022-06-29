@@ -40,7 +40,7 @@ Each task is linked and will help to:
 | `models/amenity.py` | Class `Amenity` that inherit from `BaseModel`. |
 | `models/place.py` | Class `Place` that inherit from `BaseModel`. |
 | `models/review.py` | Class `Review` that inherit from `BaseModel`. |
-| `console.py, models/engine/file_storage.py` | Update `FileStorage` to manage correctly serialization and deserialization of all new classes: `Place`, `State`, `City`, `Amenity` and `Review`. Update your command interpreter (`console.py`) to allow those actions: show, create, destroy, update and all with all classes created previously. |
+| `console.py, models/engine/file_storage.py` | Update `FileStorage` to manage correctly serialization and deserialization of all new classes: `Place`, `State`, `City`, `Amenity` and `Review`. Update command interpreter (`console.py`) to allow those actions: show, create, destroy, update and all with all classes created previously. |
 
 ### Advanced
 | Filename | Description |
