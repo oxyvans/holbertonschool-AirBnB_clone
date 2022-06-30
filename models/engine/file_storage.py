@@ -2,8 +2,14 @@
 """ file storage """
 
 
-import jsno
-import models.base_model import BaseModel
+import json
+from models.base_model import BaseModel
+from models.city import City
+from models.state import State
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+from models.user import User
 
 class FileStorage:
     """ filestorage """
@@ -31,3 +37,9 @@ class FileStorage:
 
     def reload(self):
         """ reload jsno """
+        try:
+            with open(self.__objects, "w") as f:
+                dic = json.load(f)
+
+        except FileNotFoundError:
+            pass
