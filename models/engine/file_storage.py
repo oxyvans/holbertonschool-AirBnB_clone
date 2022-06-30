@@ -42,7 +42,7 @@ class FileStorage:
     def reload(self):
         """ reload jsno """
         try:
-            with open(self.__objects, "w") as f:
+            with open(self.__file_path, "r") as f:
                 dict_ = json.load(f)
             for key in dict_:
                 self.__objects[key] = clases[dict_[key]["__class__"]](**dict_[key])
