@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """ base model create """
 
+
 import uuid
 import datetime
+import models
+
 
 class BaseModel():
     """ base modles """
@@ -20,6 +23,9 @@ class BaseModel():
                 if k != "__class__":
                     setattr(self, key, value)
 
+        models.storage.new(self)
+        models.storage.save()
+
     def __str__(self):
         """ retrun string """
         return ("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
@@ -27,6 +33,7 @@ class BaseModel():
     def save(self):
         """ savee """
         self.updated_at = datetime.datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """ to dict """
