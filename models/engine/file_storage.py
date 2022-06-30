@@ -11,6 +11,10 @@ from models.amenity import Amenity
 from models.review import Review
 from models.user import User
 
+clases = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
+            "Place": Place, "Review": Review, "State": State, "User": User}
+
+
 class FileStorage:
     """ filestorage """
 
@@ -39,7 +43,8 @@ class FileStorage:
         """ reload jsno """
         try:
             with open(self.__objects, "w") as f:
-                dic = json.load(f)
-
+                dict_ = json.load(f)
+            for key in dict_:
+                self.__objects[key] = clases[dict_[key]["__class__"]](**dict_[key])
         except FileNotFoundError:
             pass
