@@ -108,8 +108,10 @@ class HBNBCommand(cmd.Cmd):
             if str(inst) in models.storage.all():
                 if len(cmd) == 2:
                     print("** attribute name missing **")
-                if len(cmd) == 3 :
-                    print("** value missing **")
+                    if len(cmd) == 3 :
+                        print("** value missing **")
+                    else:
+                        
             else:
                 print("** no instance found **")
 
