@@ -94,5 +94,26 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
         print(res)
 
+    def do_update(self, command):
+        """  Updates an instance based """
+        cmd = command.split()
+        if len(cmd) == 0:
+            print("** class name missing **")
+        elif cmd[0] not in clases:
+            print("** class doesn't exist **")
+        elif len(cmd) < 2:
+            print("** instance id missing **")
+        else:
+            inst = cmd[0] + "." + cmd[1]
+            if str(inst) in models.storage.all():
+                if len(cmd) == 2:
+                    print("** attribute name missing **")
+                if len(cmd) == 3 :
+                    print("** value missing **")
+            else:
+                print("** no instance found **")
+
+            
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
