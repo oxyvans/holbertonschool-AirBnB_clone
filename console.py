@@ -12,8 +12,7 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def do_EOF(self, arg):
-        """ Exit method for EOF """
-        print('')
+        """ Handle method to exit when EOF """
         exit()
 
     def emptyline(self):
