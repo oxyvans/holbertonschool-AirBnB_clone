@@ -21,7 +21,7 @@ class TestBaseModule(unittest.TestCase):
 
     def test_uuid(self):
         """ Test uuid """
-        self.assertTrue(hasattr(self.base_model1, "id"))
-        self.assertNotEqual(self.base_model1.id, self.base_model2.id)
-        self.assertEqual(type(self.base_model1.id), str)
-        self.assertEqual(type(self.base_model2.id), str)
+        self.assertTrue(hasattr(base_model1, "id"))
+        self.assertNotEqual(base_model1.id, base_model2.id)
+        self.assertEqual(type(base_model1.id), str)
+        self.assertEqual(type(base_model2.id), str)
