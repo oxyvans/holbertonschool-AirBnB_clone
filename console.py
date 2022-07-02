@@ -89,8 +89,9 @@ class HBNBCommand(cmd.Cmd):
                 res.append(dic[key].__str__())
         else:
             if command in clases:
-                if dic[key].__class__.__name__ == command:
-                    res.append(dic[key].__str__())
+                for key in dic:
+                    if dic[key].__class__.__name__ == command:
+                        res.append(dic[key].__str__())
             else:
                 print("** class doesn't exist **")
         print(res)
