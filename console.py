@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(cmd) < 2:
             print("** instance id missing **")
         elif len(cmd) < 3:
-	        print("** attribute name missing **")
+            print("** attribute name missing **")
         elif len(cmd) < 4:
             print("** value missing **")
         else:
