@@ -113,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             inst = str(cmd[0] + "." + cmd[1])
             if inst in objs:
-                objs[inst].__dict__[cmd[2]] = cmd[3]
+                objs[inst].__dict__[cmd[2]] = cmd[3].replace("\"", "")
                 models.storage.save()
             else:
                 print("** no instance found **")
