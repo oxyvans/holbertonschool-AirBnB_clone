@@ -5,12 +5,11 @@ import unittest
 import pycodestyle
 from models.base_model import BaseModel
 
+base_model1 = BaseModel()
+base_model2 = BaseModel()
 
 class TestBaseModule(unittest.TestCase):
     """ A class to test Base Module """
-
-    self.base_model1 = BaseModel()
-    self.base_model2 = BaseModel()
 
     def test_pycodestyle_pep8(self):
         """ Style code meets PEP8 """
