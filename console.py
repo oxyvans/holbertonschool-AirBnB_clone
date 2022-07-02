@@ -13,7 +13,7 @@ from models.user import User
 
 
 clases = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-            "Place": Place, "Review": Review, "State": State, "User": User}
+          "Place": Place, "Review": Review, "State": State, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
         elif command not in clases:
             print("** class doesn't exist **")
         else:
-            for key , clas in clases.items():
+            for key, clas in clases.items():
                 if command == key:
                     obj = clas()
                     obj.save()
@@ -80,7 +80,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_all(self, command):
-        """ Prints all string representation of all instances based or not on the class name """
+        """ Prints all string representation of all instances based or not
+        on the class name """
         res = []
         dic = models.storage.all()
         if len(command) == 0:
@@ -108,13 +109,10 @@ class HBNBCommand(cmd.Cmd):
             if str(inst) in models.storage.all():
                 if len(cmd) == 2:
                     print("** attribute name missing **")
-                    if len(cmd) == 3 :
+                    if len(cmd) == 3:
                         print("** value missing **")
-                    else:
-
             else:
                 print("** no instance found **")
-
 
 
 if __name__ == '__main__':
