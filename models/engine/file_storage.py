@@ -13,7 +13,7 @@ from models.user import User
 
 clases = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
             "Place": Place, "Review": Review, "State": State, "User": User}
-
+value = {}
 
 class FileStorage:
     """ filestorage """
@@ -45,6 +45,7 @@ class FileStorage:
             with open(self.__file_path, "r") as f:
                 dict_ = json.load(f)
             for key in dict_:
-                self.__objects[key] = clases[dict_[key]["__class__"]](**dict_[key])
+				value = clases[dict_[key]["__class__"]](**dict_[key])
+                self.__objects[key] = value
         except FileNotFoundError:
             pass
