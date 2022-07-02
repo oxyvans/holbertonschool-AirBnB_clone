@@ -99,6 +99,7 @@ class HBNBCommand(cmd.Cmd):
         """  Updates an instance based on the class name and id
         Usage: update <className> <id> <attName> <attVal> """
         cmd = command.split()
+        objs = models.storage.all()
         if len(cmd) == 0:
             print("** class name missing **")
         elif cmd[0] not in clases:
@@ -110,8 +111,9 @@ class HBNBCommand(cmd.Cmd):
         elif len(cmd) < 4:
             print("** value missing **")
         else:
-            inst = cmd[0] + "." + cmd[1]
-            if str(inst) in models.storage.all():
+            inst = str(cmd[0] + "." + cmd[1])
+            if inst in objs:
+                objs[inst].__dict__[cmd[2]] = cmd[3]
                 models.storage.save()
             else:
                 print("** no instance found **")
