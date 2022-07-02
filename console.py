@@ -87,14 +87,15 @@ class HBNBCommand(cmd.Cmd):
         if len(command) == 0:
             for key in dic:
                 res.append(dic[key].__str__())
+            print(res)
         else:
             if command in clases:
                 for key in dic:
                     if dic[key].__class__.__name__ == command:
                         res.append(dic[key].__str__())
+                print(res)
             else:
                 print("** class doesn't exist **")
-        print(res)
 
     def do_update(self, command):
         """  Updates an instance based on the class name and id
