@@ -111,7 +111,7 @@ class HBNBCommand(cmd.Cmd):
                     if len(cmd) == 3 :
                         print("** value missing **")
                     else:
-
+                        print("temporal print")
             else:
                 print("** no instance found **")
 
