@@ -12,7 +12,7 @@ from models.review import Review
 from models.user import User
 
 clases = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-            "Place": Place, "Review": Review, "State": State, "User": User}
+          "Place": Place, "Review": Review, "State": State, "User": User}
 value = {}
 
 
@@ -38,7 +38,6 @@ class FileStorage:
             aux[key] = self.__objects[key].to_dict()
         with open(self.__file_path, "w") as f:
             json.dump(aux, f)
-
 
     def reload(self):
         """ reload jsno """
