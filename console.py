@@ -120,6 +120,26 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
+    def do_count(self, command):
+        """  number of instances of a class """
+        if command in clases:
+            cont = 0
+            dic = models.storage.all()
+            for v in dic.values():
+                if command == v.__class__.__name__:
+                    cont = cont + 1
+            print(cont)
+        else:
+            print("** class doesn't exist **")
+
+    def default(self, command):
+        """ task 11 and 12"""
+        cmd = command.split(".")
+        if cmd[0] in clases and cmd[1] == "all()":
+            HBNBCommand.do_all(self, cmd[0])
+        elif cmd[0] in clases and cmd[1] == "count()":
+            HBNBCommand.do_count(self, cmd[0])
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
